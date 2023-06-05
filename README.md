@@ -11,5 +11,11 @@ MATLAB <br>
 Parallel Computing Toolbox (not required but useful for speedup) <br>
 Statistics and Machine Learning Toolbox <br>
 
+## Contact
+Please contact the main author (Connor Hashemi) through email at hashe037@umn.edu for any questions or comments.
+
+## Citation
+If using the code, please use the following citation:
+
 ## Special Acknowledgements:
  We want to give special thanks to Abhinav Sambasivan for his code on total-variation (TV) denoising of scattered light that is included in this repository. Link to his [LinkedIn](https://www.linkedin.com/in/abhinavvs/)
