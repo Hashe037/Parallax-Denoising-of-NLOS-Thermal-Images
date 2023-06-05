@@ -9,4 +9,4 @@ MATLAB
 Parallel Computing Toolbox (not required but useful for speedup)
 Statistics and Machine Learning Toolbox
 
- We want to give special thanks to Abhinav Sambasivan for his code on total-variation (TV) denoising of scattered light that is included in this repository. Link to his LinkedIn profile is here: https://www.linkedin.com/in/abhinavvs/
+ We want to give special thanks to Abhinav Sambasivan for his code on total-variation (TV) denoising of scattered light that is included in this repository. Link to his [LinkedIn](https://www.linkedin.com/in/abhinavvs/)
