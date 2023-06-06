@@ -23,14 +23,15 @@
 % - process all pictures here (aka replace_image_nans) instead of at
 % calculate_metrics_Table1.m
 
-addpath(genpath('../'))
+addpath('./')
+addpath(genpath('../utils'))
 
 %% user parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 mainfolder = 'E:\lfield_data\condensed';
-datafolder = strcat(mainfolder,'\bare_rtemp_pos1'); %holds light field cube
-groundfolder = strcat(mainfolder,'\ground_pos1'); %ground truth for the person position (aluminmum surface)
+datafolder = strcat(mainfolder,'\pat1_rtemp_pos2'); %holds light field cube
+groundfolder = strcat(mainfolder,'\ground_pos2'); %ground truth for the person position (aluminmum surface)
 mappingfile = strcat(mainfolder,'\lfield_mapping.mat'); %mat file for the lfield -> pics mapping
 cubeparamsfile = strcat(datafolder,'\cubeParams.mat'); %parameters about the light field cube
 
@@ -38,7 +39,7 @@ prpdParams = struct();
 prpdParams.search_name = "prpd_normal"; %params for range of rp and thetaq values in PRP-D
 % "prpd_normal" for high-resolution PRP-D, "prpd_head" for thicker PRP width and more accurate depth-location
 prpdParams.filtered_prp = 1; %1 to perform PRP-D at single rp value, 0 to perform PRP-D across all rp
-prpdParams.rp_filt = 2250; %SINGLE VALUE %if "filtered_prp", this is the single filtered rp value to denoise across
+prpdParams.rp_filt = 2750; %SINGLE VALUE %if "filtered_prp", this is the single filtered rp value to denoise across
 
 only_load_essential = 0; %whether to only load the essential light fields in
 use_tv = 1; %whether to load in/create the tv-denoised versions or not

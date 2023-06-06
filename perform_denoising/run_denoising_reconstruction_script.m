@@ -21,13 +21,15 @@
 %--------------------------------------------------------------------------
 
 %required path
-addpath(genpath('../')) %entire folder
+addpath('./mlrs')
+addpath('./prpd')
+addpath(genpath('../utils'))
 
 %% user parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 mainfolder = 'E:\lfield_data\condensed'; %folder right before the datafolder
-datafolder = strcat(mainfolder,'\pat1_hc4_pos0'); %holds light field cube
+datafolder = strcat(mainfolder,'\pat1_rtemp_pos0'); %holds light field cube
 mappingfile = strcat(mainfolder,'\lfield_mapping.mat'); %mat file for the lfield -> pics mapping
 cubeparamsfile = strcat(datafolder,'\cubeParams.mat'); %parameters about the light field cube
 
@@ -35,10 +37,13 @@ prpdParams = struct();
 prpdParams.search_name = "prpd_normal"; %params for range of rp and thetaq values in PRP-D
 % "prpd_normal" for high-resolution PRP-D, "prpd_head" for thicker PRP width and more accurate depth-location
 prpdParams.prp_width = .5; %delta theta of PRP (.5 is normal). Larger means more averaging and smoother results.
-prpdParams.filtered_prp = 0; %1 to perform PRP-D at single rp value, 0 to perform PRP-D across all rp
-prpdParams.rp_filt = 2250; %SINGLE VALUE %if "filtered_prp", this is the single filtered rp value to denoise across
+prpdParams.filtered_prp = 1; %1 to perform PRP-D at single rp value, 0 to perform PRP-D across all rp
+prpdParams.rp_filt = 2000; %SINGLE VALUE %if "filtered_prp", this is the single filtered rp value to denoise across
 %"single_rp" should be calculated beforehand by the estimated location of the object in the full "normal" PRP radiance map
 
+save_mlrs = 1; %if 1, will save the MLRS results to datafolder (overwrite previous ones)
+save_prpd = 1; %if 1, will save the PRP-D results to datafolder (overwrite previous ones)
+save_pmap = 1; %if 1, will save the PRP-D 3D map results to datafolder (overwrite previous ones)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -61,7 +66,6 @@ if ~exist(mlrs_folder, 'dir')
 end
 
 do_mlrs = 1; %1 if using MLRS routine, 0 if using the raw light field
-save_mlrs = 1; %if 1, will save the MLRS results to datafolder (overwrite previous ones)
 if do_mlrs
     [lfield_cube_mlrs,fpn_pic,se_pics,emi_pics,mlrs_pics] ...
         = perform_mlrs(lfield_cube,cubeParams,lfield_mapping,datafolder,save_mlrs); %Section 4 of paper.
@@ -83,8 +87,6 @@ if ~exist(den_folder, 'dir')
 end
 
 %runs PRP-D algorithm based on parameters set for the light field cube
-save_prpd = 1;
-save_pmap = 1;
 [lfield_cube_den,pmap] ...
     = perform_prpd(lfield_cube_mlrs,cubeParams,prpdParams,datafolder,save_prpd,save_pmap);
 fprintf('perform_prpd.m is complete! \n\n\n')
