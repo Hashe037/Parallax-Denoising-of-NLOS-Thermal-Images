@@ -17,7 +17,7 @@ Please contact the main author (Connor Hashemi) through email at hashe037@umn.ed
 ## Citation
 If using the code, please use the following citation: <br>
 <br>
-Connor Hashemi, Takahiro Sasaki, and James R. Leger. "Parallax-Driven Denoising of Passively-Scattered Thermal Imagery." *IEEE International Conference on Computational Photography (ICCP)*. IEEE, 2023. \[Accepted\]
+Connor Hashemi, Takahiro Sasaki, and James R. Leger. "Parallax-Driven Denoising of Passively-Scattered Thermal Imagery." *2023 IEEE International Conference on Computational Photography (ICCP)*. IEEE, 2023. \[Accepted\]
 
 ## Special Acknowledgements:
  We want to give special thanks to Abhinav Sambasivan for his code on total-variation (TV) denoising of scattered light that is included in this repository. Link to his [LinkedIn](https://www.linkedin.com/in/abhinavvs/)
