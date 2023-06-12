@@ -30,7 +30,7 @@ addpath(genpath('../utils'))
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 mainfolder = 'E:\lfield_data\condensed';
-datafolder = strcat(mainfolder,'\pat1_rtemp_pos2'); %holds light field cube
+datafolder = strcat(mainfolder,'\pat1_hc4_pos2'); %holds light field cube
 groundfolder = strcat(mainfolder,'\ground_pos2'); %ground truth for the person position (aluminmum surface)
 mappingfile = strcat(mainfolder,'\lfield_mapping.mat'); %mat file for the lfield -> pics mapping
 cubeparamsfile = strcat(datafolder,'\cubeParams.mat'); %parameters about the light field cube
@@ -40,6 +40,7 @@ prpdParams.search_name = "prpd_normal"; %params for range of rp and thetaq value
 % "prpd_normal" for high-resolution PRP-D, "prpd_head" for thicker PRP width and more accurate depth-location
 prpdParams.filtered_prp = 1; %1 to perform PRP-D at single rp value, 0 to perform PRP-D across all rp
 prpdParams.rp_filt = 2750; %SINGLE VALUE %if "filtered_prp", this is the single filtered rp value to denoise across
+%typically 2250 for pos1 (in paper), 1750 for pos0, and 2750 for pos2
 
 only_load_essential = 0; %whether to only load the essential light fields in
 use_tv = 1; %whether to load in/create the tv-denoised versions or not
@@ -64,7 +65,7 @@ end
 try
     load(strcat(denoised_string,'.mat'));
 catch
-    error('Error: Cannot load in light field. Please check the denoised_string variable \n')
+    error('Error: Cannot load in light field. Please check the denoised_string variable')
 end
 
 %load in MLRS stuff

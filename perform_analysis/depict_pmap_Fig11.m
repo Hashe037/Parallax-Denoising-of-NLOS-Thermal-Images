@@ -18,9 +18,9 @@ ground_rp = 2750; %2000 for pos0, 2750 for pos1, 3250 for pos2
 ground_thetaq = -26; %-25 for pos0, -26 for pos1, -27 for pos2
 
 %what slices to make rp/thetao prediction
-% pmap_etaslices = 190:220; %midsection of person
 pmap_etaslices = 80:110; %head of person
-pmap_rpslice = 2250; %predicted depth at pos1
+%60:90 for pos0, 80:110 for pos1, 115:135 for pos2
+pmap_rpslice = 3250; %predicted depth at pos1
 
 %other parameters
 do_cartesian = 0; %whether to show in cartesian or stay with polar
@@ -45,7 +45,7 @@ fprintf('Estimated rp = %.2f, estimated thetaq = %.2f \n',rp_range(maxsubr),thet
 if ~do_cartesian
     figure,imagesc(thetaq_range,rp_range,pmap_slice),title(sprintf('rp/thetaq Squeezed from %i to %i eta Values',pmap_etaslices(1),pmap_etaslices(end))), colormap hot
     xlabel('thetaq'),ylabel('rp')
-    hold on, plot3(ground_thetaq,ground_rp,max(pmap_slice(:)),'rx') 
+    % hold on, plot3(ground_thetaq,ground_rp,max(pmap_slice(:)),'rx') 
     hold on, plot3(thetaq_range(maxsubc),rp_range(maxsubr),max(pmap_slice(:)),'bx')
 
 else %do cartesian

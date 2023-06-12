@@ -29,7 +29,7 @@ addpath(genpath('../utils'))
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 mainfolder = 'E:\lfield_data\condensed'; %folder right before the datafolder
-datafolder = strcat(mainfolder,'\pat1_rtemp_pos0'); %holds light field cube
+datafolder = strcat(mainfolder,'\bmason_bare_rtemp_pos1'); %holds light field cube
 mappingfile = strcat(mainfolder,'\lfield_mapping.mat'); %mat file for the lfield -> pics mapping
 cubeparamsfile = strcat(datafolder,'\cubeParams.mat'); %parameters about the light field cube
 
@@ -38,8 +38,9 @@ prpdParams.search_name = "prpd_normal"; %params for range of rp and thetaq value
 % "prpd_normal" for high-resolution PRP-D, "prpd_head" for thicker PRP width and more accurate depth-location
 prpdParams.prp_width = .5; %delta theta of PRP (.5 is normal). Larger means more averaging and smoother results.
 prpdParams.filtered_prp = 1; %1 to perform PRP-D at single rp value, 0 to perform PRP-D across all rp
-prpdParams.rp_filt = 2000; %SINGLE VALUE %if "filtered_prp", this is the single filtered rp value to denoise across
+prpdParams.rp_filt = 3500; %SINGLE VALUE %if "filtered_prp", this is the single filtered rp value to denoise across
 %"single_rp" should be calculated beforehand by the estimated location of the object in the full "normal" PRP radiance map
+%typically 2250 for pos1 (in paper), 1750 for pos0, and 3000 for pos2
 
 save_mlrs = 1; %if 1, will save the MLRS results to datafolder (overwrite previous ones)
 save_prpd = 1; %if 1, will save the PRP-D results to datafolder (overwrite previous ones)

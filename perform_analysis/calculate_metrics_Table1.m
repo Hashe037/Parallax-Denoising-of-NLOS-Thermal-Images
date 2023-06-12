@@ -9,7 +9,7 @@
 %Second is normalized cross correlation (NCC) which is just the normalized
 %dot product between the ground truth and the tested image.
 %
-%run "loacdin_data.m" first so that variables are in workspace
+%run "loadin_data.m" first so that variables are in workspace
 %--------------------------------------------------------------------------
 
 
@@ -41,6 +41,7 @@ mlrs_list = {[],[],[],[]};
 tv_raw_list = {[],[],[],[]};
 tv_mlrs_list = {[],[],[],[]};
 den_list = {[],[],[],[]};
+im_h = 288; im_w = 382;
 
 %go through each frame
 for pic_ind = start_frame:end_frame

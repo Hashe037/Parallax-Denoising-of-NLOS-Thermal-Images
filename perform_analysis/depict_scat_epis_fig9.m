@@ -12,7 +12,7 @@
 frame = 50;
 
 %eta/yslices of scattering EPIs
-yslice1 = 110; %arms and head
+yslice1 = 110;%110; %arms and head
 yslice2 = 190; %midsection
 yslice3 = 301; %legs
 
