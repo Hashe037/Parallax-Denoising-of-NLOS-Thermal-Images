@@ -1,5 +1,5 @@
 # Parallax Denoising of NLOS Thermal Images
-Code that supplements the paper "Parallax-Driven Denoising of Passively-Scattered Thermal Images" accepted to the International Conference on Computational Photography (ICCP) 2023. All code is in MATLAB 2023a while the datasets are stored at BLANKBLANKBLANK.
+Code that supplements the paper "Parallax-Driven Denoising of Passively-Scattered Thermal Images" accepted to the International Conference on Computational Photography (ICCP) 2023. All code is in MATLAB 2023a while the datasets are stored at (to be added after publication).
  
 The code is separated into two parts: the first folder "perform_denoising" contains the code that performs the denoising of the scattered light with the two proposed algorithms in the paper. Multi-domain low-rank subtraction (MLRS) switches between light field and image coordinate systems to remove the self-radiance fluctuations on the scattering surface and the fixed-pattern noise (FPN) of the thermal camera. Parallax reflection path denoising (PRP-D) is used after MLRS and denoises the remaining residual and stochastic noise according to realistic constraints of possible object locations. The second folder "perform_analysis" contains the code that depicts the results of the denoising as shown in Fig. 9, 10, 11, and Table 1.
 
