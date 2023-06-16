@@ -6,9 +6,8 @@ The code is separated into two parts: the first folder "perform_denoising" conta
 For a more in-depth look into each folder, please visit the "README.md" file for that folder.
  
 ## MATLAB toolboxs:
+Curve Fitting Toolbox <br>
 Image Processing Toolbox <br>
-MATLAB <br>
-Parallel Computing Toolbox (not required but useful for speedup) <br>
 Statistics and Machine Learning Toolbox <br>
 
 ## Contact
